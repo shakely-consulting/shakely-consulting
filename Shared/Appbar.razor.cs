@@ -60,13 +60,6 @@ public partial class Appbar
                 },
                 new ApiLinkServiceEntry
                 {
-                    Title = "Is It Christmas?",
-                    Link = "isitchristmas",
-                    SubTitle =
-                        "High-Performance Modern Christmas Detection Technology."
-                },
-                new ApiLinkServiceEntry
-                {
                     Title = "SQLite Browser",
                     Link = "sql",
                     // ComponentType = typeof(MudTable<T>),
