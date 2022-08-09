@@ -2,10 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <RunAOTCompilation>false</RunAOTCompilation>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ReleaseVersion>1.0</ReleaseVersion>
+    <PublishTrimmed>false</PublishTrimmed>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GHPages>true</GHPages>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <EmccExtraLDFlags>-lidbfs.js</EmccExtraLDFlags>
+    <EmccExtraLDFlags>-s WARN_ON_UNDEFINED_SYMBOLS=0</EmccExtraLDFlags>
+  </PropertyGroup>
+  <PropertyGroup>
+      <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
@@ -14,9 +25,9 @@
     <PackageReference Include="Microsoft.AspNetCore.HttpOverrides" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0-preview.5.22302.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0-preview.5.22302.2" />
-    <PackageReference Include="MudBlazor" Version="6.0.11" />
+    <PackageReference Include="MudBlazor" Version="6.0.14" />
     <PackageReference Include="PublishSPAforGitHubPages.Build" Version="1.3.6" />
-    <PackageReference Include="Radzen.Blazor" Version="3.19.3" />
+    <PackageReference Include="Radzen.Blazor" Version="3.20.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="sqlite-net-static" Version="1.8.116" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -36,5 +47,29 @@
     <PackageReference Include="Blazor-Analytics" Version="3.11.0" />
     <PackageReference Include="FluentValidation" Version="11.1.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\main.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="ShouldCleanGeneratedFiles" BeforeTargets="BeforeRebuild">
+    <PropertyGroup>
+      <CleanGeneratedFiles>false</CleanGeneratedFiles>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="CleanGeneratedFiles" BeforeTargets="Clean" Condition="'$(CleanGeneratedFiles)' != 'false'">
+    <ItemGroup>
+      <FilesToClean Include="./Pages/**/*ExampleCode.*" />
+      <FilesToClean Include="./Pages/**/*Example_DialogCode.*" />
+      <FilesToClean Include="./NewFilesToBuild.txt" />
+      <FilesToClean Include="./Models/Snippets.generated.cs" />
+      <FilesToClean Include="./Models/DocStrings.generated.cs" />
+      <FilesToClean Include="./wwwroot/MudBlazorDocs.min.css" />
+    </ItemGroup>
+    <Delete Files="@(FilesToClean)" />
+  </Target>
 
 </Project>

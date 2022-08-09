@@ -32,21 +32,21 @@
     async Task ShowXmas()
     {
         ToggleDrawer();
-        await Js.InvokeVoidAsync("AML.setActiveDiv", "showisitchristmas");
+        await Js.InvokeVoidAsync("SC.setActiveDiv", "showisitchristmas");
     }
     async Task ShowSql()
     {
         ToggleDrawer();
-        await Js.InvokeVoidAsync("AML.setActiveDiv", "showsql");
+        await Js.InvokeVoidAsync("SC.setActiveDiv", "showsql");
     }
     async Task ShowSC()
     {
         ToggleDrawer();
-        await Js.InvokeVoidAsync("AML.setActiveDiv", "showSC");
+        await Js.InvokeVoidAsync("SC.setActiveDiv", "showSC");
     }
     async Task ShowCandles()
     {
         ToggleDrawer();
-        await Js.InvokeVoidAsync("AML.setActiveDiv", "showcandles");
+        await Js.InvokeVoidAsync("SC.setActiveDiv", "showcandles");
     }
 }

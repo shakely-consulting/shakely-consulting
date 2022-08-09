@@ -7,7 +7,19 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/shakely-consulting.github.io.csproj",
+                "${workspaceFolder}/SC.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "clean",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
+                "${workspaceFolder}/SC.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +31,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/shakely-consulting.github.io.csproj",
+                "${workspaceFolder}/SC.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +45,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/shakely-consulting.github.io.csproj"
+                "${workspaceFolder}/SC.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

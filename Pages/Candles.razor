@@ -1,0 +1,41 @@
+@page "/candles"
+@namespace ShakelyConsulting
+@inject IJSRuntime JS;
+@inject PersonServices Service;
+
+
+<div id="candles" class="hide">
+    <strong><p id="candleprice" class="center"></p></strong>
+    <canvas id="candlestick"></canvas>
+</div>
+<style>
+    .center {
+        text-align: center;
+    }
+    #header, #candlestick {
+        margin-left: 100px;
+    }
+    #candles {
+        padding-top: 90px;
+    }
+    #candleprice {
+        padding-top: 10px;
+    }
+</style>
+@code {
+
+    CancellationTokenSource cts = new CancellationTokenSource();
+    protected override async Task OnInitializedAsync()
+    {
+        await ContinuallyGetPrices(cts.Token);
+        await base.OnInitializedAsync();
+    }
+
+    async Task ContinuallyGetPrices(CancellationToken ct = default)
+    {
+        bool isCandlesActive = false;
+        isCandlesActive = await JS.InvokeAsync<bool>("SC.isCandlesActive");
+        if (isCandlesActive)
+        await JS.InvokeVoidAsync("SC.plot");
+    }
+}

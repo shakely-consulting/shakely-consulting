@@ -121,7 +121,7 @@ public class LayoutService : ILayoutService
         for (int i = 0; i < pages.Length; i++)
         {
             MyPages.Add(pages[i]);
-            await Js.InvokeVoidAsync("AML.logit", pages[i]);
+            await Js.InvokeVoidAsync("SC.logit", pages[i]);
         }
 
         return MyPages;

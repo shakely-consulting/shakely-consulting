@@ -1,0 +1,33 @@
+@page "/"
+@layout LandingLayout
+@using SC.Components.LandingPage;
+@using MudBlazor;
+@using SC.Components;
+
+<PageTitle>All My Links</PageTitle>
+<ShakelyConsultingPage />
+<Sql />
+
+
+@code {
+
+
+    private bool _showTestimonials { get; set; }
+
+    private void ToggleTestimonials()
+    {
+        _showTestimonials = !_showTestimonials;
+    }
+
+    private string GetTestimonialClass()
+    {
+        if (_showTestimonials)
+        {
+            return $"lp-testimonials";
+        }
+        else
+        {
+            return $"lp-testimonials hide-testimonials";
+        }
+    }
+}
