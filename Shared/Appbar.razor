@@ -8,8 +8,7 @@
     <MudIconButton OnClick="DrawerToggleCallback" Icon="@Icons.Rounded.Notes" Color="Color.Inherit" Edge="Edge.Start"/>
     <MudSpacer/>
     <NavLink ActiveClass="d-flex" href="">
-        <MudBlazorLogo Class="docs-mudblazor-logo"/>
-        <MudText Color="Color.Primary" Typo="Typo.h5" Class="docs-brand-text">SC</MudText>
+        <SCLogo Class="docs-mudblazor-logo"/>
     </NavLink>
     <MudSpacer/>
     @if (DisplaySearchBar)
@@ -23,12 +22,10 @@
     </MudHidden>
     <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
         <NavLink ActiveClass="d-flex me-4" href="">
-            <MudBlazorLogo Class="docs-mudblazor-logo"/>
-            <MudText Color="Color.Primary" Typo="Typo.h5" Class="docs-brand-text" >SC</MudText>
+            <SCLogo Class="docs-mudblazor-logo"/>
         </NavLink>
         <MudButton id="showSC" @onclick="ShowSC" Color="Color.Inherit" Variant="Variant.Text" Class="@String.Concat(GetActiveClass(DocsBasePage.SC), " active")">Shakely Consulting</MudButton>
         <MudButton id="showsql" @onclick="ShowSql" Color="Color.Inherit" Variant="Variant.Text" Class="@GetActiveClass(DocsBasePage.SQL)">SQL</MudButton>
-        <MudButton id="showcandles" @onclick="ShowCandles" Color="Color.Inherit" Variant="Variant.Text" Class="@GetActiveClass(DocsBasePage.SQL)">Candlestick</MudButton>
         <MudSpacer/>
         @if (DisplaySearchBar)
     {

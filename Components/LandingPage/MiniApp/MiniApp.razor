@@ -11,7 +11,7 @@
     <MudOverlay OnClick="@(() => ToggleMiniDrawer())" @bind-Visible="@overlayVisible" Absolute="true" ZIndex="1" />
     <div class="@MiniDrawerClassNames" style="@GetDrawerWidth()">
         <div class="d-flex align-center px-4">
-            <MudBlazorLogo Class="me-3" Style="width:36px;"/>
+            <SCLogo Class="me-3" Style="width:36px;"/>
             <MudText Typo="Typo.h6">Mud Mini</MudText>
         </div>
         <MudList Clickable="true" @bind-SelectedItem="selectedItem" @bind-SelectedValue="selectedValue" Class="py-6 mini-fake-nav">

@@ -1135,7 +1135,7 @@
 		},
 		RenderDatabaseTables: async function(tbleName) {
 			// Invoke to call C# function from JavaScript.
-			await DotNet.invokeMethodAsync('Shakely-Consulting', 'LoadSelectedTable', tbleName);
+			await DotNet.invokeMethodAsync('SC', 'LoadSelectedTable', tbleName);
 		},
 		getResultSetAsRowJSON: function(_db, _stmt) {
 			try {
@@ -1399,7 +1399,7 @@
 		sendToBlazor: async function() {
 			if (db) {
 				var activetable = document.getElementById('activetable').innerText;
-				await DotNet.invokeMethodAsync('Shakely-Consulting', 'SetTableName', activetable);
+				await DotNet.invokeMethodAsync('SC', 'SetTableName', activetable);
 				// exportAsJSON.addEventListener('click', (ev) => {
 					try {
 						let jsonObj = Sql.getResultSetAsRowJSON(db, 'SELECT * FROM `' + activetable + '`');
