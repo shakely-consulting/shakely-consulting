@@ -6,10 +6,8 @@
 <div id="appbar" class="hide"></div>
 <MudHidden Breakpoint="Breakpoint.MdAndUp">
     <MudIconButton OnClick="DrawerToggleCallback" Icon="@Icons.Rounded.Notes" Color="Color.Inherit" Edge="Edge.Start"/>
+    <MudText>SC</MudText>
     <MudSpacer/>
-    <NavLink ActiveClass="d-flex" href="">
-        <SCLogo Class="docs-mudblazor-logo"/>
-    </NavLink>
     <MudSpacer/>
     @if (DisplaySearchBar)
     {
@@ -21,9 +19,7 @@
     }
     </MudHidden>
     <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
-        <NavLink ActiveClass="d-flex me-4" href="">
-            <SCLogo Class="docs-mudblazor-logo"/>
-        </NavLink>
+        <MudText>SC</MudText>
         <MudButton id="showSC" @onclick="ShowSC" Color="Color.Inherit" Variant="Variant.Text" Class="@String.Concat(GetActiveClass(DocsBasePage.SC), " active")">Shakely Consulting</MudButton>
         <MudButton id="showsql" @onclick="ShowSql" Color="Color.Inherit" Variant="Variant.Text" Class="@GetActiveClass(DocsBasePage.SQL)">SQL</MudButton>
         <MudSpacer/>

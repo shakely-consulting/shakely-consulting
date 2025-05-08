@@ -2145,6 +2145,7 @@
     // instance options
     var animateHeight = !(!supportTransition || (options.height === false || heightData === 'false'));
 
+    if (tabs)
     // set default animation state
     tabs.isAnimating = false;
 

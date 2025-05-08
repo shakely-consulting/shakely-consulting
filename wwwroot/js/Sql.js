@@ -509,7 +509,7 @@
 
 				var mainTabs = document.getElementById('mainTabs');
 				var mainTabsCollection = mainTabs.getElementsByTagName('a');
-				Array.from(mainTabsCollection).forEach(tab => new BSN.Tab(tab));
+
 
 				if (uploadBtn != null && uploadBtn != undefined)
 					uploadBtn.addEventListener('click', () => {
